@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../generated/assets.dart';
 import '../../models/video_model.dart';
 import '../ui/helpers/size_extension.dart';
 import '../ui/styles/text_styles.dart';
@@ -20,8 +21,9 @@ class VideoItem extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Expanded(
-              child: Image.network(
-                video.imageThumb,
+              child: FadeInImage.assetNetwork(
+                image: video.imageThumb,
+                placeholder: Assets.imagesLoading,
                 width: context.percentWidth(0.2),
                 fit: BoxFit.cover,
               ),

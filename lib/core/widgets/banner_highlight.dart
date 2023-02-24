@@ -18,12 +18,12 @@ class _BannerHighlightFrontState extends State<BannerHighlightFront> {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.maxFinite,
-      height: context.percentHeight(0.50),
+      height: context.percentHeight(0.70),
       child: Stack(
         children: [
           ImageSlideshow(
               width: double.maxFinite,
-              height: context.percentHeight(0.50),
+              height: context.percentHeight(0.70),
               initialPage: 0,
               indicatorRadius: 5,
               indicatorColor: Colors.white,
@@ -37,7 +37,7 @@ class _BannerHighlightFrontState extends State<BannerHighlightFront> {
               ]),
           Container(
             width: double.infinity,
-            height: context.percentHeight(0.50),
+            height: context.percentHeight(0.70),
             decoration: BoxDecoration(
               gradient: RadialGradient(
                 center: const Alignment(0.2, 0),
@@ -51,11 +51,11 @@ class _BannerHighlightFrontState extends State<BannerHighlightFront> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 75),
+            padding: const EdgeInsets.only(bottom: 75),
             child: Align(
-              alignment: Alignment.centerLeft,
+              alignment: Alignment.bottomCenter,
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Text('Paisagens', style: context.textStyles.medium),
                   ElevatedButton(

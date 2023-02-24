@@ -6,8 +6,9 @@ import 'video_item.dart';
 
 class MyListWidget extends StatefulWidget {
   final List<VideoModel> myList;
+  final ValueNotifier<bool> loaded;
 
-  const MyListWidget({super.key, required this.myList});
+  const MyListWidget({super.key, required this.myList, required this.loaded});
 
   @override
   State<MyListWidget> createState() => _MyListWidgetState();
@@ -29,25 +30,31 @@ class _MyListWidgetState extends State<MyListWidget> {
           ),
           SizedBox(
             height: 150,
-            child: GridView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: widget.myList.length,
-              itemBuilder: (context, index) {
-                final item = widget.myList[index];
+            child: ValueListenableBuilder(
+                valueListenable: widget.loaded,
+                builder: (context, bool isLoaded, child) {
+                  return (isLoaded)
+                      ? GridView.builder(
+                          scrollDirection: Axis.horizontal,
+                          itemCount: widget.myList.length,
+                          itemBuilder: (context, index) {
+                            final item = widget.myList[index];
 
-                return InkWell(
-                    onTap: () {},
-                    onFocusChange: (bool isFocused) {
-                      setState(() => onFocusIndex = index);
-                    },
-                    child: VideoItem(
-                      video: item,
-                      focus: onFocusIndex == index,
-                    ));
-              },
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 1, mainAxisSpacing: 8, childAspectRatio: 0.8),
-            ),
+                            return InkWell(
+                                onTap: () {},
+                                onFocusChange: (bool isFocused) {
+                                  setState(() => onFocusIndex = index);
+                                },
+                                child: VideoItem(
+                                  video: item,
+                                  focus: onFocusIndex == index,
+                                ));
+                          },
+                          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 1, mainAxisSpacing: 8, childAspectRatio: 0.8),
+                        )
+                      : const CircularProgressIndicator.adaptive();
+                }),
           ),
         ],
       ),
