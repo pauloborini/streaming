@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import '../../models/video_model.dart';
 import '../ui/styles/text_styles.dart';
 
-class VideoItem extends StatelessWidget {
+class ReleaseItem extends StatelessWidget {
   final VideoModel video;
   final bool focus;
 
-  const VideoItem({super.key, required this.video, required this.focus});
+  const ReleaseItem({super.key, required this.video, required this.focus});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,6 @@ class VideoItem extends StatelessWidget {
             Expanded(
               child: Image.network(
                 video.imageThumb,
-                width: 200,
                 fit: BoxFit.cover,
               ),
             ),

@@ -1,4 +1,3 @@
-import 'package:dpad_container/dpad_container.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -18,94 +17,63 @@ class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
       title: Row(
         children: [
           const SizedBox(width: 8),
-          DpadContainer(
-            onClick: () {},
-            onFocus: (bool isFocused) {},
-            child: IconButton(
-                onPressed: () {
-                  ///TODO
-                  ///scroll estilo ifood
-                },
-                icon: ClipRRect(
-                  borderRadius: BorderRadius.circular(100),
-                  child: Container(
-                      color: context.colors.primary.withOpacity(0.8),
-                      width: 38,
-                      height: 38,
-                      child: Image.asset(Assets.imagesImg, fit: BoxFit.cover)),
-                )),
-          ),
+          IconButton(
+              onPressed: () {
+                ///TODO
+                ///scroll estilo ifood
+              },
+              icon: ClipRRect(
+                borderRadius: BorderRadius.circular(100),
+                child: Container(
+                    color: context.colors.primary.withOpacity(0.8),
+                    width: 38,
+                    height: 38,
+                    child: Image.asset(Assets.imagesImg, fit: BoxFit.cover)),
+              )),
           const SizedBox(width: 12),
-          DpadContainer(
-            onClick: () {},
-            onFocus: (bool isFocused) {},
-            child: IconButton(
-                onPressed: () {
-                  ///TODO
-                  ///scroll estilo ifood
-                },
-                icon: const Icon(FontAwesomeIcons.house)),
-          ),
+          IconButton(
+              onPressed: () {
+                ///TODO
+                ///scroll estilo ifood
+              },
+              icon: const Icon(FontAwesomeIcons.house)),
           const SizedBox(width: 12),
-          DpadContainer(
-            onClick: () {},
-            onFocus: (bool isFocused) {},
-            child: IconButton(
-                onPressed: () {},
-                icon: const Icon(
-                  FontAwesomeIcons.solidBookmark,
-                )),
-          ),
+          IconButton(
+              onPressed: () {},
+              icon: const Icon(
+                FontAwesomeIcons.solidBookmark,
+              )),
           const SizedBox(width: 12),
-          DpadContainer(
-            onClick: () {},
-            onFocus: (bool isFocused) {},
-            child: IconButton(
-                onPressed: () {},
-                icon: const Icon(
-                  FontAwesomeIcons.clapperboard,
-                )),
-          ),
+          IconButton(
+              onPressed: () {},
+              icon: const Icon(
+                FontAwesomeIcons.clapperboard,
+              )),
           const SizedBox(width: 12),
-          DpadContainer(
-            onClick: () {},
-            onFocus: (bool isFocused) {},
-            child: IconButton(
-                onPressed: () {},
-                icon: const Icon(
-                  FontAwesomeIcons.tv,
-                )),
-          ),
+          IconButton(
+              onPressed: () {},
+              icon: const Icon(
+                Icons.tv,
+                size: 31,
+              )),
           const SizedBox(width: 12),
-          DpadContainer(
-            onClick: () {},
-            onFocus: (bool isFocused) {},
-            child: IconButton(
-                onPressed: () {},
-                icon: const Icon(
-                  FontAwesomeIcons.elementor,
-                )),
-          ),
-          const SizedBox(width: 24),
-          DpadContainer(
-            onClick: () {},
-            onFocus: (bool isFocused) {},
-            child: IconButton(
-                onPressed: () {},
-                icon: const Icon(
-                  FontAwesomeIcons.magnifyingGlass,
-                )),
-          ),
+          IconButton(
+              onPressed: () {},
+              icon: const Icon(
+                FontAwesomeIcons.elementor,
+              )),
+          const SizedBox(width: 12),
+          IconButton(
+              onPressed: () {},
+              icon: const Icon(
+                FontAwesomeIcons.magnifyingGlass,
+              )),
         ],
       ),
       actions: [
         Padding(
-          padding: const EdgeInsets.only(right: 20),
-          child: DpadContainer(
-              onClick: () {},
-              onFocus: (bool isFocused) {},
-              child: IconButton(onPressed: () {}, icon: const Icon(FontAwesomeIcons.gear))),
-        )
+            padding: const EdgeInsets.only(right: 20),
+            child: IconButton(onPressed: () {}, icon: const Icon(FontAwesomeIcons.gear))),
       ],
     );
   }

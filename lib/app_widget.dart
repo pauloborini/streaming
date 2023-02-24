@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'core/ui/theme/custom_scroll_behavior.dart';
 import 'core/ui/theme/theme_config.dart';
@@ -10,16 +11,21 @@ class AppWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      scrollBehavior: MyCustomScrollBehavior(),
-      title: 'Streaming',
-      theme: ThemeConfig.theme,
-      initialRoute: "/initial_page",
-      routes: {
-        "/initial_page": (context) => InitialRoute.page,
-        "/login_page": (context) => LoginRoute.page,
+    return Shortcuts(
+      shortcuts: <LogicalKeySet, Intent>{
+        LogicalKeySet(LogicalKeyboardKey.select): const ActivateIntent()
       },
-      debugShowCheckedModeBanner: false,
+      child: MaterialApp(
+        scrollBehavior: MyCustomScrollBehavior(),
+        title: 'Streaming',
+        theme: ThemeConfig.theme,
+        initialRoute: "/initial_page",
+        routes: {
+          "/initial_page": (context) => InitialRoute.page,
+          "/login_page": (context) => LoginRoute.page,
+        },
+        debugShowCheckedModeBanner: false,
+      ),
     );
   }
 }

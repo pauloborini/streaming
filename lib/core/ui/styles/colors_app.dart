@@ -14,7 +14,7 @@ class ColorsApp {
 
   Color get background => const Color(0xFF222223);
 
-  Color get secondary => const Color(0xFF07A0C4);
+  Color get secondary => const Color(0xFF107D98);
 
   Color get fontColor => const Color.fromARGB(255, 245, 245, 245);
 

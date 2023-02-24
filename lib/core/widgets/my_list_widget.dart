@@ -1,4 +1,3 @@
-import 'package:dpad_container/dpad_container.dart';
 import 'package:flutter/material.dart';
 
 import '../../models/video_model.dart';
@@ -11,7 +10,7 @@ class MyListWidget extends StatefulWidget {
   const MyListWidget({Key? key, required this.myList}) : super(key: key);
 
   @override
-  _MyListWidgetState createState() => _MyListWidgetState();
+  State<MyListWidget> createState() => _MyListWidgetState();
 }
 
 class _MyListWidgetState extends State<MyListWidget> {
@@ -24,7 +23,10 @@ class _MyListWidgetState extends State<MyListWidget> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('Minha Lista', style: context.textStyles.bold),
+          Padding(
+            padding: const EdgeInsets.only(left: 4),
+            child: Text('Minha Lista', style: context.textStyles.bold),
+          ),
           SizedBox(
             height: 150,
             child: GridView.builder(
@@ -33,9 +35,9 @@ class _MyListWidgetState extends State<MyListWidget> {
               itemBuilder: (context, index) {
                 final item = widget.myList[index];
 
-                return DpadContainer(
-                    onClick: () {},
-                    onFocus: (bool isFocused) {
+                return InkWell(
+                    onTap: () {},
+                    onFocusChange: (bool isFocused) {
                       setState(() => onFocusIndex = index);
                     },
                     child: VideoItem(

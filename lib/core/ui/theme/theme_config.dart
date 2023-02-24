@@ -2,12 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../styles/colors_app.dart';
+import 'custom_splash_factory.dart';
 
 class ThemeConfig {
   ThemeConfig._();
 
   static final theme = ThemeData(
-    focusColor: Colors.white24,
+    applyElevationOverlayColor: true,
+    focusColor: ColorsApp.instance.secondary,
+    splashColor: ColorsApp.instance.secondary,
+    hoverColor: ColorsApp.instance.secondary,
+    highlightColor: ColorsApp.instance.secondary,
+    splashFactory: WaveSplash.customSplashFactory(strokeWidth: 45, blurStrength: 26),
     fontFamily: 'Login',
     useMaterial3: false,
     primaryColor: ColorsApp.instance.primary,
