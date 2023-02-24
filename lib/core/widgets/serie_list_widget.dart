@@ -2,18 +2,18 @@ import 'package:flutter/material.dart';
 
 import '../../models/video_model.dart';
 import '../ui/styles/text_styles.dart';
-import 'release_item.dart';
+import 'video_item.dart';
 
-class ReleasesWidget extends StatefulWidget {
-  final Iterable<VideoModel> list;
+class SerieListWidget extends StatefulWidget {
+  final List<VideoModel> seriesList;
 
-  const ReleasesWidget({Key? key, required this.list}) : super(key: key);
+  const SerieListWidget({super.key, required this.seriesList});
 
   @override
-  State<ReleasesWidget> createState() => _ReleasesWidgetState();
+  State<SerieListWidget> createState() => _SerieListWidgetState();
 }
 
-class _ReleasesWidgetState extends State<ReleasesWidget> {
+class _SerieListWidgetState extends State<SerieListWidget> {
   int? onFocusIndex;
 
   @override
@@ -25,28 +25,28 @@ class _ReleasesWidgetState extends State<ReleasesWidget> {
         children: [
           Padding(
             padding: const EdgeInsets.only(left: 4),
-            child: Text('Lançamentos', style: context.textStyles.bold),
+            child: Text('Séries', style: context.textStyles.bold),
           ),
           SizedBox(
-            height: 250,
+            height: 150,
             child: GridView.builder(
               scrollDirection: Axis.horizontal,
-              itemCount: widget.list.length,
+              itemCount: widget.seriesList.length,
               itemBuilder: (context, index) {
-                final item = widget.list.elementAt(index);
+                final item = widget.seriesList[index];
 
                 return InkWell(
                     onTap: () {},
                     onFocusChange: (bool isFocused) {
                       setState(() => onFocusIndex = index);
                     },
-                    child: ReleaseItem(
+                    child: VideoItem(
                       video: item,
                       focus: onFocusIndex == index,
                     ));
               },
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 1, mainAxisSpacing: 8, childAspectRatio: 1.5),
+                  crossAxisCount: 1, mainAxisSpacing: 8, childAspectRatio: 0.8),
             ),
           ),
         ],

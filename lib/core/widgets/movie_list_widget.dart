@@ -7,7 +7,7 @@ import 'video_item.dart';
 class MovieListWidget extends StatefulWidget {
   final List<VideoModel> moviesList;
 
-  const MovieListWidget({Key? key, required this.moviesList}) : super(key: key);
+  const MovieListWidget({super.key, required this.moviesList});
 
   @override
   State<MovieListWidget> createState() => _MovieListWidgetState();

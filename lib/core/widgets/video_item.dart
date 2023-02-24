@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../models/video_model.dart';
+import '../ui/helpers/size_extension.dart';
 import '../ui/styles/text_styles.dart';
 
 class VideoItem extends StatelessWidget {
@@ -21,7 +22,7 @@ class VideoItem extends StatelessWidget {
             Expanded(
               child: Image.network(
                 video.imageThumb,
-                width: 200,
+                width: context.percentWidth(0.2),
                 fit: BoxFit.cover,
               ),
             ),

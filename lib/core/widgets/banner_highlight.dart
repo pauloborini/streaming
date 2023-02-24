@@ -51,7 +51,7 @@ class _BannerHighlightFrontState extends State<BannerHighlightFront> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 60),
+            padding: const EdgeInsets.only(left: 75),
             child: Align(
               alignment: Alignment.centerLeft,
               child: Column(

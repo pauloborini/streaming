@@ -7,7 +7,7 @@ import 'video_item.dart';
 class RecentsListWidget extends StatefulWidget {
   final List<VideoModel> recentList;
 
-  const RecentsListWidget({Key? key, required this.recentList}) : super(key: key);
+  const RecentsListWidget({super.key, required this.recentList});
 
   @override
   State<RecentsListWidget> createState() => _RecentsListWidgetState();

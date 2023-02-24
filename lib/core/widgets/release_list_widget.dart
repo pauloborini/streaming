@@ -2,18 +2,18 @@ import 'package:flutter/material.dart';
 
 import '../../models/video_model.dart';
 import '../ui/styles/text_styles.dart';
-import 'video_item.dart';
+import 'release_item.dart';
 
-class MyListWidget extends StatefulWidget {
-  final List<VideoModel> myList;
+class ReleaseListWidget extends StatefulWidget {
+  final Iterable<VideoModel> list;
 
-  const MyListWidget({super.key, required this.myList});
+  const ReleaseListWidget({super.key, required this.list});
 
   @override
-  State<MyListWidget> createState() => _MyListWidgetState();
+  State<ReleaseListWidget> createState() => _ReleaseListWidgetState();
 }
 
-class _MyListWidgetState extends State<MyListWidget> {
+class _ReleaseListWidgetState extends State<ReleaseListWidget> {
   int? onFocusIndex;
 
   @override
@@ -25,28 +25,28 @@ class _MyListWidgetState extends State<MyListWidget> {
         children: [
           Padding(
             padding: const EdgeInsets.only(left: 4),
-            child: Text('Minha Lista', style: context.textStyles.bold),
+            child: Text('Lançamentos', style: context.textStyles.bold),
           ),
           SizedBox(
-            height: 150,
+            height: 250,
             child: GridView.builder(
               scrollDirection: Axis.horizontal,
-              itemCount: widget.myList.length,
+              itemCount: widget.list.length,
               itemBuilder: (context, index) {
-                final item = widget.myList[index];
+                final item = widget.list.elementAt(index);
 
                 return InkWell(
                     onTap: () {},
                     onFocusChange: (bool isFocused) {
                       setState(() => onFocusIndex = index);
                     },
-                    child: VideoItem(
+                    child: ReleaseItem(
                       video: item,
                       focus: onFocusIndex == index,
                     ));
               },
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 1, mainAxisSpacing: 8, childAspectRatio: 0.8),
+                  crossAxisCount: 1, mainAxisSpacing: 8, childAspectRatio: 1.5),
             ),
           ),
         ],
